@@ -8,15 +8,21 @@ import * as actions from '../actions';
 
 // create a component
 class ListItem extends Component {
+    
     renderDescription() {
+
         const { library, selectedLibraryId } = this.props;
         if (library.id === selectedLibraryId){
-            console.log('=');
             return  (
-                <Text>{library.description}</Text>
+                <CardSection>
+                    <Text style={{ flex: 1 }}>
+                        {library.description}
+                    </Text>
+                </CardSection>
+                
             );
         }
-        console.log('!=');
+
     }
     render() {
         const { titleStyle } = styles;
