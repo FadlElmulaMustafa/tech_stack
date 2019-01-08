@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { Text, TouchableWithoutFeedback, View  } from 'react-native';
+import { Text, TouchableWithoutFeedback, View,LayoutAnimation  } from 'react-native';
 import { connect } from 'react-redux';
 import { CardSection } from './common';
 import * as actions from '../actions';
@@ -8,18 +8,20 @@ import * as actions from '../actions';
 
 // create a component
 class ListItem extends Component {
-    
+    componentWillUpdate() {
+        LayoutAnimation.spring();
+
+    }
     renderDescription() {
 
         const { library, selectedLibraryId } = this.props;
         if (library.id === selectedLibraryId){
             return  (
                 <CardSection>
-                    <Text style={{ flex: 1 }}>
+                    <Text style={{ flex: 1, paddingLeft: 15 , paddingRight: 5}}>
                         {library.description}
                     </Text>
                 </CardSection>
-                
             );
         }
 
